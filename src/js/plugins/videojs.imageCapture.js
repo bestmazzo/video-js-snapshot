@@ -46,15 +46,14 @@
       },
       getDomByIdAndTag: function (id, tag) {
         tag = this.formatTag(tag);
-        var elem = $('#' + id);//jQuery
-        var dom = elem[0];
+        var dom = document.getElementById(id);
         if (!tag || tag.trim().length === 0) {
-          return;
+              return;
         }
         if (dom.tagName.toUpperCase() === tag.toUpperCase()) {
-          return dom;
+              return dom;
         }
-        return elem.find(tag)[0];
+        return dom.getElementsByTagName(tag)[0];
       },
       getScreenContainerDomByIdAndTag: function (id, tag) {
         tag = this.formatTag(tag);
