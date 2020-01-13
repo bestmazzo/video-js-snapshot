@@ -403,9 +403,13 @@
     player.ready(() => {
       onPlayerReady(this, videojs.mergeOptions(defaultOptions, options));
     });
-    player.on('play', function () {
-      $('video').attr('crossorigin', 'anonymous');
-    })
+    
+    //crossOrgin process
+    var videoTags = document.getElementsByTagName('video');
+    for (var i = 0; i < videoTags.length; i++) {
+        var videoTag = videoTags[i];
+        videoTag.setAttribute('crossOrigin', 'Anonymous');
+    }
 
     // create snapshoter
     player.snapshoter = new videojs.SnapshoterComponent(this,
